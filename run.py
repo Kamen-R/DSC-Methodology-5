@@ -16,7 +16,7 @@ def main(target):
 def train_model(data):
     y = pd.to_datetime(data["summary_date"]).apply(datetime.date.weekday).apply(lambda x: "Weekday" if x < 5 else "Weekend")
     X = data
-    X = X.merge(pd.DataFrame(test_patient["hypnogram_5min"].apply(list).to_list()), how="outer", left_index=True, right_index=True)
+    X = X.merge(pd.DataFrame(data["hypnogram_5min"].apply(list).to_list()), how="outer", left_index=True, right_index=True)
     X = X.drop(columns=["summary_date", "type", "timestamp", "hypnogram_5min"])
     
     model = KNeighborsClassifier(n_neighbors=2)

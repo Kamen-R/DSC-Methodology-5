@@ -4,7 +4,7 @@ import sys
 
 def main(target):
 
-    if targets == "test":
+    if "test" in targets:
         with open('test/testdata.csv') as file:
             test_data = pd.read_csv(file)
         

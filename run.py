@@ -1,4 +1,5 @@
-from test_model import train_model
+from sklearn.neighbors import KNeighborsClassifier
+import datetime
 
 def main(target):
 
